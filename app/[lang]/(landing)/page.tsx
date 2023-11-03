@@ -7,7 +7,7 @@ export default async function HomePage({
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
   const websiteTheme = await getTheme(searchParams);
-  console.log(websiteTheme);
+  //console.log(websiteTheme);
 
   return <Box style={{ height: '100vh' }}>Home Page!</Box>;
 }

@@ -1,8 +1,12 @@
+import { Locale } from '@/i18n.config';
+import { getDictionary } from '@/utils/dictionary';
 import { Box, Text } from '@mantine/core';
 import Image from 'next/image';
 import React from 'react';
 
-const Footer = () => {
+const Footer = async ({ lang }: { lang: Locale }) => {
+  const dict = await getDictionary(lang);
+
   return (
     <Box bg={'#FE731D'} w={'100vw'} h={308} p={100}>
       <Image
@@ -22,7 +26,7 @@ const Footer = () => {
           lineWeight: '22px',
         }}
       >
-        One hub to save on your favourite brands.
+        {dict.footer}
       </Text>
     </Box>
   );
