@@ -2,7 +2,6 @@ import '@mantine/core/styles.css';
 
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { Kanit } from 'next/font/google';
-import { ThemeContextProvider } from './context/ThemeContext';
 
 const kanit = Kanit({ weight: '400', subsets: ['latin'] });
 
@@ -22,9 +21,7 @@ export default async function RootLayout({
         <ColorSchemeScript />
       </head>
       <body className={kanit.className}>
-        <ThemeContextProvider>
-          <MantineProvider>{children}</MantineProvider>
-        </ThemeContextProvider>
+        <MantineProvider>{children}</MantineProvider>
       </body>
     </html>
   );

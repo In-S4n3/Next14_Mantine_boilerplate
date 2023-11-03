@@ -15,10 +15,7 @@ export function setThemeMiddleware(req: NextRequest) {
     theme = query.split('=')[1];
   }
 
-  if (theme?.startsWith('unsub-')) theme = 'unsub';
-
   const response = NextResponse.next();
-  response.cookies.set('_vercel_no_cache', '1');
   if (theme) response.cookies.set('theme', theme);
 
   return response;
