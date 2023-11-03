@@ -1,3 +1,14 @@
 {
-  "footer": "Eine Plattform für deine Lieblingsmarken zum Sparen."
+  "footer": {
+    "description": "Eine Plattform für deine Lieblingsmarken zum Sparen."
+  },
+  "login-page": {
+    "title": "Anmeldung",
+    "email-placeholder": "E-Mail",
+    "password-placeholder": "Passwort eingeben",
+    "login-button": "Log in",
+    "forgot-password": "Passwort vergessen?",
+    "not-registered": "Noch nicht Mitglied?",
+    "join-now": "Jetzt registrieren"
+  }
 }

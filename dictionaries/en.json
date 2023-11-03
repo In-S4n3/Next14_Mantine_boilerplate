@@ -1,3 +1,14 @@
 {
-  "footer": "One hub to save on your favourite brands."
+  "footer": {
+    "description": "One hub to save on your favourite brands."
+  },
+  "login-page": {
+    "title": "Log In",
+    "email-placeholder": "Email",
+    "password-placeholder": "Write your password",
+    "login-button": "Log in",
+    "forgot-password": "Forgot Password?",
+    "not-registered": "Not a member?",
+    "join-now": "Join now"
+  }
 }

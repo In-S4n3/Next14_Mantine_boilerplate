@@ -26,7 +26,7 @@ const Footer = async ({ lang }: { lang: Locale }) => {
           lineWeight: '22px',
         }}
       >
-        {dict.footer}
+        {dict.footer.description}
       </Text>
     </Box>
   );

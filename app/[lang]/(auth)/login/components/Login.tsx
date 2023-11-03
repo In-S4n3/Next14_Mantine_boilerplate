@@ -1,5 +1,3 @@
-'use client';
-import { useForm } from '@mantine/form';
 import {
   Box,
   Button,
@@ -9,17 +7,11 @@ import {
   Title,
 } from '@mantine/core';
 import Link from 'next/link';
+import { Locale } from '@/i18n.config';
+import { getDictionary } from '@/utils/dictionary';
 
-const Login = () => {
-  const form = useForm({
-    initialValues: { email: '', password: '' },
-
-    validate: {
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
-      password: (value) =>
-        value.length < 8 ? 'Password must have at least 8 characters' : null,
-    },
-  });
+const Login = async ({ lang }: { lang: Locale }) => {
+  const dict = await getDictionary(lang);
 
   return (
     <Box
@@ -48,14 +40,13 @@ const Login = () => {
           lineHeight: 'normal',
         }}
       >
-        Log In
+        {dict['login-page'].title}
       </Title>
-      <form onSubmit={form.onSubmit(console.log)}>
-        <TextInput placeholder="Email" {...form.getInputProps('email')} />
+      <form>
+        <TextInput placeholder={dict['login-page']['email-placeholder']} />
         <PasswordInput
           mt="32px"
-          placeholder="write your password"
-          {...form.getInputProps('password')}
+          placeholder={dict['login-page']['password-placeholder']}
         />
 
         <Button
@@ -65,7 +56,7 @@ const Login = () => {
           bg={'#FE731D'}
           style={{ fontSize: '20px' }}
         >
-          Log in
+          {dict['login-page']['login-button']}
         </Button>
         <Link
           href={''}
@@ -74,10 +65,10 @@ const Login = () => {
             color: '#3DADF3',
           }}
         >
-          Forgot password?
+          {dict['login-page']['forgot-password']}
         </Link>
         <Text size="md" mt={48} style={{ textAlign: 'center' }}>
-          Not a member yet?{' '}
+          {dict['login-page']['not-registered']}{' '}
           <Link
             href={''}
             style={{
@@ -85,7 +76,7 @@ const Login = () => {
               color: '#3DADF3',
             }}
           >
-            Join now
+            {dict['login-page']['join-now']}
           </Link>
         </Text>
       </form>
