@@ -1,10 +1,16 @@
+'use server';
 import { Theme } from '@/types/typings';
+import { cookies } from 'next/headers';
 
 export const getTheme = async (theme: string, initialTheme: Theme) => {
+  const cookieStore = cookies();
+  const themeCookies = cookieStore.get('theme')?.value;
+  const websiteTheme = theme || themeCookies;
+
   let themeOptions = {} as Theme;
   if (theme) {
     themeOptions = await fetch(
-      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/themes/${theme}`,
+      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/themes/${websiteTheme}`,
     )
       .then((res) => res.json())
       .then(({ data }) => data);
